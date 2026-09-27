@@ -16,8 +16,11 @@ namespace biv {
 			std::vector<ConsoleBox*> boxes;
 			std::vector<ConsoleFullBox*> full_boxes;
 			std::vector<ConsoleShip*> ships;
+			std::vector<ConsoleMovingPlatform*> moving_platforms;
 			ConsoleMario* mario = nullptr;
 			std::vector<ConsoleEnemy*> enemies;
+			std::vector<ConsoleFlyingEnemy*> flying_enemies;
+			std::vector<ConsoleJumpingEnemy*> jumping_enemies;
 			std::vector<ConsoleMoney*> moneys;
 
 		public:
@@ -30,7 +33,13 @@ namespace biv {
 			void create_enemy(
 				const Coord& top_left, const int width, const int height
 			) override;
+			void create_flying_enemy(
+				const Coord& top_left, const int width, const int height
+			) override;
 			void create_full_box(
+				const Coord& top_left, const int width, const int height
+			) override;
+			void create_jumping_enemy(
 				const Coord& top_left, const int width, const int height
 			) override;
 			void create_mario(
@@ -38,6 +47,10 @@ namespace biv {
 			) override;
 			void create_money(
 				const Coord& top_left, const int width, const int height
+			) override;
+			void create_moving_platform(
+				const Coord& top_left, const int width, const int height,
+				const int travel_distance
 			) override;
 			void create_ship(
 				const Coord& top_left, const int width, const int height

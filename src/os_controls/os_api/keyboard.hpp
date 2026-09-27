@@ -6,6 +6,7 @@ namespace biv {
 		MAP_LEFT,
 		MAP_RIGHT,
 		MARIO_JUMP,
+		DEBUG_SKIP_LEVEL,
 		NO_INPUT
 	};
 

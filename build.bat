@@ -1,5 +1,7 @@
 @echo off
 
+mode con:cols=40 lines=40
+
 set BUILD_TYPE=Ninja
 set BUILD_SUFFIX=ninja
 
@@ -17,4 +19,5 @@ set GAME_TYPE=WindowsConsole
 cmake -G %BUILD_TYPE% -DGAME_TYPE=%GAME_TYPE% ..\%SOURCE_FOLDER%
 cmake --build .
 
-cd ..
+super_mario.exe
+pause

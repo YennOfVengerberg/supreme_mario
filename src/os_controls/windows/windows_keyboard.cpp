@@ -6,14 +6,16 @@ using biv::UserInput;
 using biv::WindowsKeyBoard;
 
 UserInput WindowsKeyBoard::get_user_input() {
-	if (GetKeyState('A') < 0) {
+	if (GetKeyState(VK_LEFT) < 0) {
 		return UserInput::MAP_RIGHT;
-	} else if (GetKeyState('D') < 0) {
+	} else if (GetKeyState(VK_RIGHT) < 0) {
 		return UserInput::MAP_LEFT;
-	} else if (GetKeyState(VK_SPACE) < 0) {
+	} else if (GetKeyState(VK_UP) < 0) {
 		return UserInput::MARIO_JUMP;
 	} else if (GetKeyState('Q') < 0) {
 		return UserInput::EXIT;
+	} else if (GetKeyState('Z') < 0) {
+		return UserInput::DEBUG_SKIP_LEVEL;
 	} else {
 		return UserInput::NO_INPUT;
 	}

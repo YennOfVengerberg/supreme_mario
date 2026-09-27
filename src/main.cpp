@@ -73,6 +73,16 @@ int main() {
 		// 2. Получение пользовательского ввода	
 		user_input = keyboard->get_user_input();
 		switch (user_input) {
+			case biv::UserInput::DEBUG_SKIP_LEVEL:
+				if (!game_level->is_final()) {
+					game_level = game_level->get_next();
+					mario = ui_factory->get_mario();
+					std::this_thread::sleep_for(500ms);
+					keyboard->off();
+					keyboard->on();
+					game.start_level();
+				}
+				break;
 			case biv::UserInput::MAP_LEFT:
 				mario->move_map_left();
 				if (!game.check_static_collisions(mario)) {
